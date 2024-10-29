@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>打磚塊</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #74ebd5, #acb6e5);
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+        button {
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .easy { background-color: green; }
+        .medium { background-color: yellow; }
+        .hard { background-color: red; }
+        .start { background-color: blue; }
+        h2 { text-align: center; }
+    </style>
+</head>
+<body>
+
+    <h1>打磚塊</h1>
+    <h2>選擇難度並開始遊戲！</h2>
+    <div>
+        <button class="easy" onclick="startGame('easy')">簡單</button>
+        <button class="medium" onclick="startGame('medium')">中等</button>
+        <button class="hard" onclick="startGame('hard')">困難</button>
+    </div>
+
+    <audio id="backgroundMusic" loop>
+        <source src="msc/bs.mp3" type="audio/mpeg">
+        你的瀏覽器不支持音頻元素。
+    </audio>
+
+    <script>
+        function startGame(difficulty) {
+            const music = document.getElementById('backgroundMusic');
+            music.play(); // 開始播放背景音樂
+            if (difficulty) {
+                // 根據選擇的難度導向不同的HTML頁面
+                if (difficulty === 'easy') {
+                    window.location.href = 'easy.html';
+                } else if (difficulty === 'medium') {
+                    window.location.href = 'medium.html';
+                } else if (difficulty === 'hard') {
+                    window.location.href = 'hard.html';
+                }
+            } else {
+                alert("請選擇難度！");
+            }
+        }
+    </script>
+
+</body>
+</html>
